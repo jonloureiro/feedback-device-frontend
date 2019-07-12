@@ -24,6 +24,7 @@
             {
                 "extensions": [".js"]
             }
-        ]
+        ],
+        "react/prop-types": 0
     }
 }
