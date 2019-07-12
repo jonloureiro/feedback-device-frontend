@@ -1,0 +1,9 @@
+@import '~office-ui-fabric-react/dist/sass/Fabric.scss';
+
+.card {
+  background: #fff;
+  padding: 28px;
+  margin-bottom: 28px;
+  border-radius: 2px;
+  @include ms-depth-4;
+}
