@@ -11,8 +11,8 @@ const Login = () => (
   <div className={Style.login}>
     <Card className={Style.login__card}>
       <h2 className={Style.login__logo}>AVALIAÇÃO MUSEU</h2>
-      <TextField type="email" placeholder="E-mail" iconProps={{ iconName: 'Contact' }} underlined />
-      <TextField type="password" placeholder="Senha" iconProps={{ iconName: 'Encryption' }} underlined />
+      <TextField type="email" placeholder="E-mail" iconProps={{ iconName: 'Mail' }} underlined />
+      <TextField type="password" placeholder="Senha" iconProps={{ iconName: 'Permissions' }} underlined />
       <PrimaryButton className={Style.login__button}>Entrar</PrimaryButton>
     </Card>
   </div>
