@@ -6,13 +6,12 @@ import Routes from './routes';
 import 'sanitize.css';
 import 'sanitize.css/forms.css';
 
-import { getData } from './services';
+import { getData } from './helpers';
 
 import './styles';
 
 
 const App = () => {
-  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState({ isAuthenticated: false });
   const [data, setData] = useState({});
   const [error, setError] = useState(false);

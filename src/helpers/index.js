@@ -3,6 +3,6 @@ import getData from './data';
 
 
 export {
-  api as default,
+  api,
   getData,
 };
