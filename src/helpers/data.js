@@ -1,4 +1,4 @@
-import api from './api';
+import api, { responseError } from './api';
 
 
 const getData = async () => {
@@ -9,19 +9,7 @@ const getData = async () => {
       data,
     };
   } catch (err) {
-    const data = (err.response) ? {
-      status: err.response.status || undefined,
-      statusText: err.response.statusText || undefined,
-      message: err.response.data.messages || undefined,
-    } : {
-      status: 999,
-      statusText: 'Unknown',
-      message: 'Erro desconhecido, verifique sua conexão',
-    };
-    return {
-      error: true,
-      data,
-    };
+    return responseError(err);
   }
 };
 
