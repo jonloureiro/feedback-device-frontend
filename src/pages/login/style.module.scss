@@ -17,10 +17,13 @@
     grid-row-start: 2;
     align-self: center;
     height: 100%;
+  }
 
+  &__form {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     align-items: center;
+    height: 100%;
   }
 
   &__button {
