@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { PrimaryButton, TextField } from 'office-ui-fabric-react';
 
-import { validateEmail } from '../../helpers';
+import { validateEmail, login } from '../../helpers';
 import Card from '../../components/card';
 
 import Style from './style.module.scss';
@@ -21,10 +21,11 @@ const Login = () => {
     });
   };
 
-  const handleOnClick = () => {
+  const handleOnClick = async () => {
     const { email, password } = inputs;
     if (validateEmail(email) && password.length > 0) {
-      console.log('pode enviar');
+      const response = await login(email, password);
+      console.log(response);
     }
   };
 

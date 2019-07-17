@@ -1,10 +1,10 @@
-import api from './api';
+import login from './login';
 import getData from './data';
 import validateEmail from './validateEmail';
 
 
 export {
-  api,
+  login,
   getData,
   validateEmail,
 };
