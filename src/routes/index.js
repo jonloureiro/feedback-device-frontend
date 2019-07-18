@@ -4,8 +4,8 @@ import {
   BrowserRouter, Switch,
 } from 'react-router-dom';
 
-import LoginRoute from './loginRoute';
-import PrivateRoute from './privateRoute';
+import LoginRoute from './login.route';
+import PrivateRoute from './private.route';
 
 import Home from '../pages/home';
 import Login from '../pages/login';
