@@ -24,8 +24,8 @@ const Login = ({ login }) => {
   const handleOnClick = async () => {
     const { email, password } = inputs;
     if (validateEmail(email) && password.length > 0) {
-      const { error } = await login(email, password);
-      if (error) console.log(error);
+      const { error, response } = await login(email, password);
+      if (error) console.log(response);
     }
   };
 
