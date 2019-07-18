@@ -25,7 +25,7 @@ const Login = ({ login }) => {
     const { email, password } = inputs;
     if (validateEmail(email) && password.length > 0) {
       const { error } = await login(email, password);
-      if (error) console.error(error);
+      if (error) console.log(error);
     }
   };
 
