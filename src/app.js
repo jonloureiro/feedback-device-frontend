@@ -21,7 +21,7 @@ const App = () => {
       } else setErr(true);
     } else {
       setUser({
-        email: undefined,
+        email: 'MANDAR O EMAIL PELO COOKIES!',
       });
     }
     setLoading(false);
