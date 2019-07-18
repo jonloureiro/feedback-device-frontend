@@ -7,4 +7,4 @@ const validateEmail = (email) => {
 };
 
 
-export default validateEmail;
+export { validateEmail as default };

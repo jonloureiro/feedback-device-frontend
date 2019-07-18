@@ -1,6 +1,6 @@
 import login from './login';
 import getData from './data';
-import validateEmail from './validateEmail';
+import validateEmail from './email';
 
 
 export {
