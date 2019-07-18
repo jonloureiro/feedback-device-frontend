@@ -3,7 +3,11 @@ import Axios from 'axios';
 import { baseURL } from '../config';
 
 
-const api = Axios.create({ baseURL, withCredentials: true });
+const api = Axios.create({
+  baseURL,
+  withCredentials: true,
+  timeout: 2000,
+});
 
 const response = (error, status, statusText, message) => ({
   error,
