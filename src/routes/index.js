@@ -11,11 +11,11 @@ import Home from '../pages/home';
 import Login from '../pages/login';
 
 
-const Routes = ({ user, data }) => (
+const Routes = ({ callback: { user } }) => (
   <BrowserRouter>
     <Switch>
       <LoginRoute exact path="/login" component={Login} user={user} />
-      <PrivateRoute exact path="*" component={Home} user={user} data={data} />
+      <PrivateRoute exact path="*" component={Home} user={user} />
     </Switch>
   </BrowserRouter>
 );

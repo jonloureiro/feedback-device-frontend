@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 import { PrimaryButton, TextField } from 'office-ui-fabric-react';
 
-import { validateEmail, login } from '../../helpers';
+import { validateEmail } from '../../helpers';
 import Card from '../../components/card';
 
 import Style from './login.module.scss';
 
 
-const Login = () => {
+const Login = ({ login }) => {
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
@@ -24,8 +24,8 @@ const Login = () => {
   const handleOnClick = async () => {
     const { email, password } = inputs;
     if (validateEmail(email) && password.length > 0) {
-      const response = await login(email, password);
-      console.log(response);
+      const { error } = await login(email, password);
+      if (error) console.error(error);
     }
   };
 
