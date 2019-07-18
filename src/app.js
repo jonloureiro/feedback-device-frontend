@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Routes from './routes';
 
-import { getData, login } from './helpers';
+import { getData, login, logout } from './helpers';
 
 
 const App = () => {
@@ -39,8 +39,9 @@ const App = () => {
         }
         return { error, response };
       },
-      logout: () => {
-        console.log('Fazer Logout');
+      logout: async () => {
+        const { error } = await logout();
+        if (!error) setUser({ email: undefined });
       },
     },
   };
