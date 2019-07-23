@@ -7,7 +7,7 @@ import Card from '../../components/card';
 
 import Style from './home.module.scss';
 
-const Home = ({ logout }) => (
+const Home = ({ logout, data }) => (
   <div className={Style.home}>
     <Header className={Style.home__header}>
       <ActionButton onClick={logout}>
@@ -16,7 +16,7 @@ const Home = ({ logout }) => (
     </Header>
     <div className={Style.home__wrapper}>
       <Card className={Style.home__card}>
-        <h3>Só de teste!</h3>
+        <h3>{ console.log(data) }</h3>
       </Card>
     </div>
   </div>

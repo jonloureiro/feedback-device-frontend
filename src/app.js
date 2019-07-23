@@ -7,7 +7,11 @@ import { getData, login, logout } from './helpers';
 
 const App = () => {
   const [user, setUser] = useState({ email: undefined });
-  // const [data, setData] = useState({});
+  const [data, setData] = useState({
+    today: [0, 0, 0],
+    week: [0, 0, 0],
+    month: [0, 0, 0],
+  });
   const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -23,6 +27,7 @@ const App = () => {
       setUser({
         email: 'MANDAR O EMAIL PELO COOKIES!',
       });
+      setData(response.data);
     }
     setLoading(false);
   };
@@ -33,9 +38,7 @@ const App = () => {
       login: async (email, password) => {
         const { error, response } = await login(email, password);
         if (response.status === 200) {
-          setUser({
-            email,
-          });
+          await init();
         }
         return { error, response };
       },
@@ -43,6 +46,9 @@ const App = () => {
         const { error } = await logout();
         if (!error) setUser({ email: undefined });
       },
+    },
+    data: {
+      getData: () => data,
     },
   };
 
