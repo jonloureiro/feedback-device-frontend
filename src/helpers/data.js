@@ -3,10 +3,10 @@ import api, { responseError } from './api';
 
 const getData = async () => {
   try {
-    const data = await api.get('/data');
+    const response = await api.get('/data');
     return {
       error: false,
-      data,
+      response,
     };
   } catch (err) {
     return responseError(err);
