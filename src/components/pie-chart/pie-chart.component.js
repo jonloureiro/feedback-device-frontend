@@ -1,37 +1,76 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useEffect } from 'react';
 import Chart from 'chart.js';
 
-// import Style from './pie-chart.module.scss';
+import Style from './pie-chart.module.scss';
 
-const PieChart = ({ label, data }) => {
+const PieChart = ({
+  id, label, data, className,
+}) => {
   const chartRef = React.createRef();
+  const hasData = data.reduce((acc, cur) => {
+    // eslint-disable-next-line no-param-reassign
+    acc += cur;
+    return acc;
+  }, 0);
 
   useEffect(() => {
     const ctx = chartRef.current.getContext('2d');
-    // eslint-disable-next-line no-new
-    new Chart(ctx, {
+
+    const chart = new Chart(ctx, {
       type: 'pie',
       data: {
         labels: ['Ruim', 'Regular', 'Bom'],
         datasets: [{
           label,
-          data: [7, 15, 25],
-          backgroundColor: [
-            '#F25022',
-            '#FFB900',
-            '#7FBA00',
-          ],
-          borderWidth: 2,
+          data,
+          backgroundColor: hasData ? [
+            '#FF1654',
+            '#EABE7C',
+            '#70C1B3',
+          ] : [],
+          borderWidth: 3,
         }],
       },
-      options: {},
+      options: {
+        legend: {
+          display: false,
+          reverse: true,
+        },
+        tooltips: {
+          bodyFontFamily: "'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif",
+        },
+      },
     });
-  }, [chartRef, data, label]);
+
+    const updateChart = () => {
+      chart.resize();
+    };
+
+    window.addEventListener('resize', updateChart);
+
+    return () => {
+      chart.destroy();
+      window.removeEventListener('resize', updateChart);
+    };
+  }, []);
+
   return (
-    <canvas
-      id="myChart"
-      ref={chartRef}
-    />
+    <div>
+      <h3 className={Style.chart__title}>
+        {label}
+        {' '}
+        {hasData ? '' : '(Sem registros)'}
+      </h3>
+      <div className={Style.chart__wrapper}>
+        <canvas
+          className={`${className || ''}`}
+          id={id}
+          ref={chartRef}
+        />
+      </div>
+    </div>
   );
 };
 
