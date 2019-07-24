@@ -3,7 +3,6 @@
   display: grid;
   grid-template-rows: 56px 1fr 0px;
   grid-row-gap: 28px;
-  height: 100vh;
 
   &__header {
     display: grid;
@@ -39,5 +38,20 @@
 
   &__card {
     grid-column: 2 / 3;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-row-gap: 56px;
+
+    @media (min-width: 1024px) {
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-row-gap: 0;
+    }
+  }
+
+  &__chart {
+    display: grid;
+    position: inherit;
   }
 }

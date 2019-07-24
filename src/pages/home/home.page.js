@@ -17,9 +17,9 @@ const Home = ({ logout, data }) => (
     </Header>
     <div className={Style.home__wrapper}>
       <Card className={Style.home__card}>
-        <PieChart label="Hoje" data={data.today} />
-        <PieChart label="Semana" data={data.week} />
-        <PieChart label="Mês" data={data.month} />
+        <PieChart id="today" label="Hoje" data={data.today} className={Style.home__chart} />
+        <PieChart id="week" label="Últimos 7 dias" data={data.week} className={Style.home__chart} />
+        <PieChart id="month" label="Últimos 30 dias" data={data.month} className={Style.home__chart} />
       </Card>
     </div>
   </div>
