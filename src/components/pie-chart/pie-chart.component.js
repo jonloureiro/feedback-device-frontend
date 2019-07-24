@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Chart from 'chart.js';
 
 import Style from './pie-chart.module.scss';
@@ -8,6 +8,7 @@ import Style from './pie-chart.module.scss';
 const PieChart = ({
   id, label, data, className,
 }) => {
+  const [chart, setChart] = useState();
   const chartRef = React.createRef();
   const hasData = data.reduce((acc, cur) => {
     // eslint-disable-next-line no-param-reassign
@@ -18,7 +19,7 @@ const PieChart = ({
   useEffect(() => {
     const ctx = chartRef.current.getContext('2d');
 
-    const chart = new Chart(ctx, {
+    setChart(new Chart(ctx, {
       type: 'pie',
       data: {
         labels: ['Ruim', 'Regular', 'Bom'],
@@ -42,7 +43,7 @@ const PieChart = ({
           bodyFontFamily: "'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif",
         },
       },
-    });
+    }));
 
     const updateChart = () => {
       chart.resize();
@@ -55,6 +56,15 @@ const PieChart = ({
       window.removeEventListener('resize', updateChart);
     };
   }, []);
+
+  useEffect(() => {
+    if (chart) {
+      if (JSON.stringify(chart.data.datasets[0].data) !== JSON.stringify(data)) {
+        chart.data.datasets[0].data = data;
+        chart.update();
+      }
+    }
+  }, [data]);
 
   return (
     <div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { ActionButton } from 'office-ui-fabric-react';
 
@@ -9,14 +8,14 @@ import PieChart from '../../components/pie-chart';
 
 import Style from './home.module.scss';
 
-const Home = ({ logout, data }) => (
+
+const Home = ({ logout, data, refresh }) => (
   <div className={Style.home}>
     <Header className={Style.home__header}>
-      <Link to="/refresh">
-        <ActionButton
-          iconProps={{ iconName: 'Sync' }}
-        />
-      </Link>
+      <ActionButton
+        onClick={refresh}
+        iconProps={{ iconName: 'Sync' }}
+      />
       <ActionButton onClick={logout}>
         Sair
       </ActionButton>

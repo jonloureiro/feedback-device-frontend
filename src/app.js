@@ -49,6 +49,7 @@ const App = () => {
     },
     data: {
       getData: () => data,
+      refreshData: async () => { await init(); },
     },
   };
 
