@@ -1,6 +1,6 @@
 {
-  "name": "museu-frontend",
-  "version": "0.2.0",
+  "name": "feedback-device-frontend",
+  "version": "1.0.0",
   "private": true,
   "license": "GPL-2.0",
   "scripts": {
@@ -46,5 +46,5 @@
     "email": "me@jonloureiro.dev",
     "url": "https://jonloureiro.dev"
   },
-  "repository": "github:jonloureiro/museu-frontend"
+  "repository": "github:jonloureiro/feedback-device-frontend"
 }
