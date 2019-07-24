@@ -6,6 +6,7 @@ import {
 
 import LoginRoute from './login.route';
 import PrivateRoute from './private.route';
+import RedirectRoute from './redirect.route';
 
 import Home from '../pages/home';
 import Login from '../pages/login';
@@ -15,7 +16,8 @@ const Routes = ({ callback: { user, data } }) => (
   <BrowserRouter>
     <Switch>
       <LoginRoute exact path="/login" component={Login} user={user} />
-      <PrivateRoute exact path="*" component={Home} user={user} data={data} />
+      <PrivateRoute exact path="/" component={Home} user={user} data={data} />
+      <RedirectRoute path="*" />
     </Switch>
   </BrowserRouter>
 );
