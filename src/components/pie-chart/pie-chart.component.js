@@ -26,11 +26,11 @@ const PieChart = ({
         datasets: [{
           label,
           data,
-          backgroundColor: hasData ? [
+          backgroundColor: [
             '#FF1654',
             '#EABE7C',
             '#70C1B3',
-          ] : [],
+          ],
           borderWidth: 3,
         }],
       },
@@ -52,7 +52,7 @@ const PieChart = ({
     window.addEventListener('resize', updateChart);
 
     return () => {
-      chart.destroy();
+      if (chart) chart.destroy();
       window.removeEventListener('resize', updateChart);
     };
   }, []);
