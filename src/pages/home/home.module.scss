@@ -5,9 +5,10 @@
   grid-row-gap: 28px;
 
   &__header {
-    display: grid;
-    align-content: center;
-    justify-content: end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__wrapper {
