@@ -59,7 +59,7 @@ const PieChart = ({
 
   useEffect(() => {
     if (chart) {
-      if (JSON.stringify(chart.data.datasets[0].data) !== JSON.stringify(data)) {
+      if (`${chart.data.datasets[0].data}` !== `${data}`) {
         chart.data.datasets[0].data = data;
         chart.update();
       }
@@ -70,8 +70,7 @@ const PieChart = ({
     <div>
       <h3 className={Style.chart__title}>
         {label}
-        {' '}
-        {hasData ? '' : '(Sem registros)'}
+        {hasData ? '' : ' (Sem registros)'}
       </h3>
       <div className={Style.chart__wrapper}>
         <canvas
