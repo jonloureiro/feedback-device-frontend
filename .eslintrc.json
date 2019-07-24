@@ -16,7 +16,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "react-hooks"
     ],
     "rules": {
         "react/jsx-filename-extension": [
@@ -24,6 +25,9 @@
             {
                 "extensions": [".js"]
             }
-        ]
+        ],
+        "react/prop-types": 0,
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
     }
 }

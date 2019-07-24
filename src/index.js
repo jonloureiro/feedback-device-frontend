@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import 'sanitize.css';
+import 'sanitize.css/forms.css';
 
-const App = () => (
-  <h2>
-    Iniciando museu-frontend
-  </h2>
-);
+import App from './app';
+import './styles';
 
 
 ReactDOM.render(<App />, document.getElementById('root'));

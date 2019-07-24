@@ -1,0 +1,9 @@
+@import '~office-ui-fabric-react/dist/sass/Fabric.scss';
+
+.header {
+  @extend .ms-depth-4;
+  background: #fff;
+  padding-left: 28px;
+  padding-right: 28px;
+  height: 56px;
+}
